@@ -1,4 +1,4 @@
-# Self-adaptive Mesh Generator for Global Complex Roots and Poles Finding Algorithm
+# Self-Adaptive Mesh Generator for Global Complex Roots and Poles Finding Algorithm
 
 ##### Programming language: MATLAB
 

@@ -14,6 +14,7 @@ function [EdgesToSplit, Mode] = regular(NodesCoord,Tol,DT,Elements,CandidateEdge
 %  Mode            :
 %
 
+EdgesToSplit=[];
 Mode = 1;
 if(isempty(CandidateEdges))
     Mode = 2;
@@ -28,7 +29,14 @@ if(MaxCandidateEdgesLengths<Tol)
     Mode = 3;
 end
 
+if(size(CandidateEdges,1)==1)
+    CandidateEdges=CandidateEdges';
+end
 ArrayOfCandidateElements = vertexAttachments(DT,unique(CandidateEdges));
+if(size(CandidateEdges,2)==1)
+    CandidateEdges=CandidateEdges';
+end
+
 NoOfConnectionsToCandidate=zeros(size(Elements,1),1);
 for ik=1:size(ArrayOfCandidateElements,1)
     NoOfConnectionsToCandidate(ArrayOfCandidateElements{ik})=NoOfConnectionsToCandidate(ArrayOfCandidateElements{ik})+1;
